@@ -341,11 +341,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     librmnetctl \
     libprotobuf-cpp-full \
-    libxml2
-
-#RIL
-PRODUCT_PACKAGES += \
+    libxml2 \
     android.hardware.radio@1.0
+    android.hardware.radio@1.0 \
+    android.hardware.radio.config@1.0
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
