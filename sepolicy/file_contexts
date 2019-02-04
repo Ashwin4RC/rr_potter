@@ -60,7 +60,7 @@
 
 /data/local/dbvc(/.*)?                                   u:object_r:dbvc_data_file:s0
 /data/local/moodle(/.*)?                                 u:object_r:moodle_data_file:s0
-/data/misc/cutback(/.*)?                                 u:object_r:cutback_data_file:s0
+/data/vendor/misc/cutback(/.*)?                          u:object_r:cutback_data_file:s0
 
 /data/misc/sds(/.*)?                                     u:object_r:sds_data_file:s0
 
@@ -119,6 +119,7 @@
 /dev/l3g4200d                                            u:object_r:sensors_device:s0
 /dev/stml0xx_ms                                          u:object_r:sensors_device:s0
 /dev/stml0xx_as                                          u:object_r:sensors_device:s0
+/data/misc/sensor(/.*)?                                  u:object_r:sensors_data_file:s0
 
 # WCNSS
 /sys/module/wcnsscore/parameters(/.*)?                   u:object_r:sysfs_wcnsscore:s0
@@ -132,6 +133,7 @@
 /data/misc/perfd(/.*)?                                          u:object_r:perfd_data_file:s0
 /data/system/perfd(/.*)?                                        u:object_r:perfd_data_file:s0
 /data/oemnvitems(/.*)?                                          u:object_r:nv_data_file:s0
+#/data/vendor/time(/.*)?                                         u:object_r:time_data_file:s0
 
 /system/vendor/bin/perfd           u:object_r:perfd_exec:s0
 /system/vendor/bin/hw/android\.hardware\.power@1\.1-service-qti          u:object_r:hal_power_default_exec:s0
@@ -141,7 +143,18 @@
 
 /sys/kernel/debug/rmt_storage(/.*)? u:object_r:debugfs_rmt_storage:s0
 
+#/data/vendor/nfc(/.*)? u:object_r:nfc_data_file:s0
+
 # Fingerprint custom hal
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.1-service_32 u:object_r:hal_fingerprint_default_exec:s0
 
 /(vendor|system/vendor)/bin/hw/android\.hardware\.health@2\.0-service\.potter        u:object_r:hal_health_default_exec:s0
+
+/(vendor|system/vendor)/bin/hw/android\.hardware\.vibrator@1\.0-service.potter   u:object_r:hal_vibrator_default_exec:s0
+/sys/devices/virtual/timed_output/vibrator/vtg_default                            u:object_r:sysfs_vibrator:s0
+/sys/devices/virtual/timed_output/vibrator/vtg_level                            u:object_r:sysfs_vibrator:s0
+/sys/devices/virtual/timed_output/vibrator/vtg_min                            u:object_r:sysfs_vibrator:s0
+/sys/devices/virtual/timed_output/vibrator/vtg_max                            u:object_r:sysfs_vibrator:s0
+
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.widevine            u:object_r:hal_drm_widevine_exec:s0
+/(vendor|system/vendor)/bin/hw/android\.hardware\.drm@1\.1-service\.clearkey            u:object_r:hal_drm_clearkey_exec:s0
